@@ -1,0 +1,730 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #f4f6f8;
+    color: #1f2933;
+}
+
+h1, h2, h3 {
+    color: #102a43;
+}
+
+a {
+    color: #0967d2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    margin: 16px 0;
+}
+
+input {
+    padding: 8px;
+    margin: 4px 0;
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    background: #0967d2;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #03449e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #d9e2ec;
+    text-align: left;
+}
+
+th {
+    background: #e4e7eb;
+}
+
+.error {
+    color: #c62828;
+}
+
+.success {
+    color: #2e7d32;
+}
+
+.page-panel {
+    background: white;
+    padding: 24px;
+    border: 1px solid #d9e2ec;
+}
+.hand {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 86px;
+    height: 124px;
+    background: white;
+    border: 1px solid #bcccdc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(16, 42, 67, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.card-corner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-corner-bottom {
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+.card-center {
+    font-size: 42px;
+    text-align: center;
+    line-height: 1;
+}
+
+.card-hidden {
+    background: repeating-linear-gradient(
+            45deg,
+            #243b53,
+            #243b53 6px,
+            #334e68 6px,
+            #334e68 12px
+    );
+    color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.card-red {
+    color: #c62828;
+}
+
+.card-black {
+    color: #111827;
+}
+
+.card-back-symbol {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.card-back-label {
+    font-size: 13px;
+    letter-spacing: 0;
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.action-row form {
+    margin: 0;
+}
+
+.game-table {
+    background: #0f5132;
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.game-table h2,
+.game-table h3 {
+    color: white;
+}
+
+.hand-section {
+    margin: 20px 0;
+}
+
+.game-status {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+}
+
+.game-status p {
+    margin: 6px 0;
+}
+
+.auth-page {
+    min-height: 100vh;
+    max-width: none;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #1f7a4d, #0b2f22 55%, #071f18);
+}
+
+.register-page {
+    min-height: 100vh;
+    max-width: none;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+            linear-gradient(135deg, rgba(6, 27, 21, 0.9), rgba(15, 81, 50, 0.74) 52%, rgba(7, 31, 24, 0.9)),
+            url("/images/blackjack-table.avif");
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+.auth-card h1 {
+    margin-top: 0;
+    font-size: 36px;
+    color: #0f5132;
+}
+
+.auth-subtitle {
+    color: #52606d;
+    margin-bottom: 24px;
+}
+
+.auth-card label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.auth-card input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+.auth-card button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.dealer-art {
+    width: 190px;
+    height: 250px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.dashboard-page {
+    max-width: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background:
+            linear-gradient(135deg, rgba(7, 31, 24, 0.9), rgba(15, 81, 50, 0.76) 52%, rgba(6, 27, 21, 0.9)),
+            url("/images/blackjack-table.avif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.dashboard-shell {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.dashboard-hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 28px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.24);
+}
+
+.dashboard-hero h1 {
+    color: white;
+    margin: 8px 0;
+    font-size: 40px;
+}
+
+.dashboard-kicker {
+    margin: 0;
+    color: #d7b46a;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.dashboard-subtitle {
+    margin: 0;
+    color: #d9e2ec;
+}
+
+.chip-balance {
+    min-width: 220px;
+    background: #ffffff;
+    color: #102a43;
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 4px solid #d7b46a;
+}
+
+.chip-label {
+    color: #52606d;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.chip-value {
+    margin-top: 8px;
+    color: #0f5132;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chip-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.dashboard-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 24px 0;
+}
+
+.lobby-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 130px;
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    color: #102a43;
+    border: 1px solid #d9e2ec;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.lobby-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+.lobby-card-primary {
+    background: #d7b46a;
+    border-color: #f7df9e;
+}
+
+.lobby-card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.lobby-card-text {
+    margin-top: 12px;
+    color: #52606d;
+    line-height: 1.5;
+}
+
+.lobby-card-primary .lobby-card-text {
+    color: #243b53;
+}
+
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.dashboard-footer a {
+    color: white;
+}
+
+.dashboard-footer form {
+    margin: 0;
+}
+
+.dashboard-dealer {
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.casino-page {
+    max-width: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background:
+            linear-gradient(135deg, rgba(6, 27, 21, 0.9), rgba(15, 81, 50, 0.76) 54%, rgba(7, 31, 24, 0.9)),
+            url("/images/blackjack-table.avif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.casino-shell {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.casino-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    color: white;
+    margin-bottom: 22px;
+}
+
+.casino-header h1 {
+    color: white;
+    margin: 8px 0;
+    font-size: 40px;
+}
+
+.start-panel,
+.history-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+}
+
+.start-panel h2 {
+    margin-top: 0;
+    color: #0f5132;
+}
+
+.start-panel label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.start-panel input {
+    min-width: 220px;
+}
+
+.game-table {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 0 0 6px rgba(215, 180, 106, 0.18), 0 22px 44px rgba(0, 0, 0, 0.26);
+}
+
+.table-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.table-topline h2 {
+    margin: 0;
+}
+
+.table-bet {
+    background: #d7b46a;
+    color: #102a43;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.hand-section {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.casino-back-link {
+    color: white;
+    display: inline-block;
+    margin-top: 18px;
+}
+
+.history-action {
+    align-self: center;
+    background: #d7b46a;
+    color: #102a43;
+    padding: 12px 16px;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.history-action:hover {
+    text-decoration: none;
+    background: #f7df9e;
+}
+
+.history-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.history-table th {
+    background: #102a43;
+    color: white;
+}
+
+.history-table td {
+    background: #ffffff;
+}
+
+.result-pill {
+    display: inline-block;
+    min-width: 82px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    background: #e4e7eb;
+    color: #102a43;
+}
+
+.result-win,
+.result-blackjack {
+    background: #d7f5e7;
+    color: #0f5132;
+}
+
+.result-lose {
+    background: #fde2e2;
+    color: #a61b1b;
+}
+
+.result-draw {
+    background: #fff3c4;
+    color: #7c5e10;
+}
+
+.empty-history {
+    margin: 0;
+    color: #52606d;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.pagination a {
+    background: #d7b46a;
+    color: #102a43;
+    padding: 8px 12px;
+    border-radius: 999px;
+}
+
+.pagination a:hover {
+    text-decoration: none;
+    background: #f7df9e;
+}
+
+.home-page {
+    max-width: none;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background:
+            linear-gradient(135deg, rgba(6, 27, 21, 0.9), rgba(15, 81, 50, 0.74) 52%, rgba(7, 31, 24, 0.9)),
+            url("/images/blackjack-table.avif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home-shell {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+.home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    gap: 28px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 34px;
+    color: white;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.26);
+}
+
+.home-copy h1 {
+    color: white;
+    font-size: 56px;
+    margin: 8px 0 12px;
+}
+
+.home-subtitle {
+    max-width: 560px;
+    color: #d9e2ec;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.home-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.home-button:hover {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.home-button-primary {
+    background: #d7b46a;
+    color: #102a43;
+    border-color: #f7df9e;
+}
+
+.home-logout-form {
+    margin: 0;
+}
+
+.home-logout-form .home-button {
+    font: inherit;
+}
+
+.home-visual {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+}
+
+.home-table-image {
+    width: 100%;
+    height: 280px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+}
+
+.home-chip-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -8px;
+}
+
+.home-chip {
+    width: 44px;
+    height: 44px;
+}
+
+.home-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 22px;
+}
+
+@media (max-width: 720px) {
+    .dashboard-hero,
+    .dashboard-actions,
+    .dashboard-footer,
+    .casino-header,
+    .table-topline,
+    .home-hero,
+    .home-cards {
+        display: block;
+    }
+
+    .chip-balance,
+    .lobby-card,
+    .dashboard-footer form,
+    .history-action,
+    .table-bet {
+        margin-top: 16px;
+    }
+
+    .history-panel {
+        overflow-x: auto;
+    }
+
+    .home-visual,
+    .home-cards .lobby-card {
+        margin-top: 16px;
+    }
+
+    .home-copy h1 {
+        font-size: 40px;
+    }
+}

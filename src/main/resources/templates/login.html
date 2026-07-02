@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Blackjack</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-page">
+<div class="auth-card">
+    <img src="/images/dealer.png" alt="Blackjack dealer" class="dealer-art">
+    <h1>Blackjack</h1>
+    <p class="auth-subtitle">Virtual chips only. No real money.</p>
+
+    <p class="error" th:if="${param.error}">
+        Invalid username or password
+    </p>
+
+    <p class="success" th:if="${param.registered}">
+        Registration successful. Please log in.
+    </p>
+
+    <p class="success" th:if="${param.logout}">
+        You have been logged out.
+    </p>
+
+    <form method="post" action="/login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+        <div>
+            <label>Username</label>
+            <input type="text" name="username">
+        </div>
+
+        <div>
+            <label>Password</label>
+            <input type="password" name="password">
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        New player? <a href="/register">Create an account</a>
+    </p>
+
+    <a href="/">Back to Home</a>
+</div>
+</body>
+</html>

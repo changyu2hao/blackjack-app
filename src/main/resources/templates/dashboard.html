@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Blackjack</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-page">
+<main class="dashboard-shell">
+    <section class="dashboard-hero">
+        <div>
+            <p class="dashboard-kicker">Blackjack Lobby</p>
+            <h1>Welcome, <span th:text="${username}">username</span></h1>
+            <p class="dashboard-subtitle">Play with virtual chips only. No real money.</p>
+        </div>
+        <div class="chip-balance">
+            <span class="chip-label">Balance</span>
+            <span class="chip-value">
+                <span th:text="${balance}">0.00</span>
+                <img src="/images/chip.svg" alt="chips" class="chip-icon">
+            </span>
+        </div>
+    </section>
+
+    <section class="dashboard-actions">
+        <a class="lobby-card lobby-card-primary" href="/game">
+            <span class="lobby-card-title">Start Game</span>
+            <span class="lobby-card-text">Take a seat and play a new blackjack hand.</span>
+        </a>
+
+        <a class="lobby-card" href="/history">
+            <span class="lobby-card-title">Game History</span>
+            <span class="lobby-card-text">Review your recent wins, losses, bets, and balance.</span>
+        </a>
+    </section>
+
+    <div class="dashboard-footer">
+        <a href="/">Back to Home</a>
+
+        <form method="post" action="/logout">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="casino-page">
+<main class="casino-shell">
+    <section class="casino-header">
+        <div>
+            <p class="dashboard-kicker">Blackjack Table</p>
+            <h1>Blackjack Game</h1>
+            <p class="dashboard-subtitle">Virtual chips only. Play the hand, then check your ledger.</p>
+        </div>
+        <div class="chip-balance">
+            <span class="chip-label">Balance</span>
+            <span class="chip-value">
+                <span th:text="${balance}">0.00</span>
+                <img src="/images/chip.svg" alt="chips" class="chip-icon">
+            </span>
+        </div>
+    </section>
+
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+
+    <section class="start-panel" th:if="${game == null}">
+        <h2>Place Your Bet</h2>
+        <form method="post" action="/game/start">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <label>Bet Amount</label>
+            <input type="number" name="betAmount" min="1" step="1" required>
+            <button type="submit">Start Game</button>
+        </form>
+    </section>
+
+<div class="game-table" th:if="${game != null}">
+    <div class="table-topline">
+        <h2>Current Hand</h2>
+        <span class="table-bet">Bet: <span th:text="${game.betAmount}">0</span></span>
+    </div>
+
+    <div class="hand-section">
+        <h3>Player Hand</h3>
+        <p>
+            Score: <span th:text="${game.playerHand.score}">0</span>
+        </p>
+        <div class="hand">
+            <div class="card" th:each="card : ${game.playerHand.cards}"
+                 th:classappend="${card.red} ? ' card-red' : ' card-black'">
+                <div class="card-corner">
+                    <span th:text="${card.rank}">K</span>
+                    <span th:text="${card.suitSymbol}">S</span>
+                </div>
+                <div class="card-center" th:text="${card.suitSymbol}">S</div>
+                <div class="card-corner card-corner-bottom">
+                    <span th:text="${card.rank}">K</span>
+                    <span th:text="${card.suitSymbol}">S</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hand-section">
+        <h3>Dealer Hand</h3>
+
+        <div th:if="${game.gameOver}">
+            <p>
+                Score: <span th:text="${game.dealerHand.score}">0</span>
+            </p>
+            <div class="hand">
+                <div class="card" th:each="card : ${game.dealerHand.cards}"
+                     th:classappend="${card.red} ? ' card-red' : ' card-black'">
+                    <div class="card-corner">
+                        <span th:text="${card.rank}">K</span>
+                        <span th:text="${card.suitSymbol}">S</span>
+                    </div>
+                    <div class="card-center" th:text="${card.suitSymbol}">S</div>
+                    <div class="card-corner card-corner-bottom">
+                        <span th:text="${card.rank}">K</span>
+                        <span th:text="${card.suitSymbol}">S</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${!game.gameOver}">
+            <p>Score: ?</p>
+            <div class="hand">
+                <div class="card"
+                     th:classappend="${game.dealerHand.cards[0].red} ? ' card-red' : ' card-black'">
+                    <div class="card-corner">
+                        <span th:text="${game.dealerHand.cards[0].rank}">K</span>
+                        <span th:text="${game.dealerHand.cards[0].suitSymbol}">S</span>
+                    </div>
+                    <div class="card-center" th:text="${game.dealerHand.cards[0].suitSymbol}">S</div>
+                    <div class="card-corner card-corner-bottom">
+                        <span th:text="${game.dealerHand.cards[0].rank}">K</span>
+                        <span th:text="${game.dealerHand.cards[0].suitSymbol}">S</span>
+                    </div>
+                </div>
+
+                <div class="card card-hidden">
+                    <div class="card-back-symbol">?</div>
+                    <div class="card-back-label">Hidden</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-status">
+        <p th:if="${game.result == 'IN_PROGRESS'}">Game in progress.</p>
+        <p th:if="${game.result == 'WIN'}">You won!</p>
+        <p th:if="${game.result == 'LOSE'}">You lost.</p>
+        <p th:if="${game.result == 'DRAW'}">Draw.</p>
+        <p th:if="${game.result == 'BLACKJACK'}">Blackjack! You won 1.5x your bet.</p>
+    </div>
+
+    <div class="action-row" th:if="${!game.gameOver}">
+        <form method="post" action="/game/hit">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit">Hit</button>
+        </form>
+
+        <form method="post" action="/game/stand">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit">Stand</button>
+        </form>
+    </div>
+
+    <div th:if="${game.gameOver}">
+        <form method="post" action="/game/new">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+            <button type="submit">New Game</button>
+        </form>
+    </div>
+</div>
+
+<br>
+<a class="casino-back-link" href="/dashboard">Back to Dashboard</a>
+</main>
+</body>
+</html>

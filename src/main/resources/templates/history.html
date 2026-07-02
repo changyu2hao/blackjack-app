@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game History - Blackjack</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="casino-page">
+<main class="casino-shell">
+    <section class="casino-header">
+        <div>
+            <p class="dashboard-kicker">Casino Ledger</p>
+            <h1>Game History</h1>
+            <p class="dashboard-subtitle">Track your virtual chip results hand by hand.</p>
+        </div>
+        <a class="history-action" href="/game">Play Blackjack</a>
+    </section>
+
+    <section class="history-panel">
+        <p class="empty-history" th:if="${#lists.isEmpty(histories)}">No game history yet.</p>
+
+        <table class="history-table" th:if="${!#lists.isEmpty(histories)}">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Bet</th>
+                <th>Result</th>
+                <th>Player</th>
+                <th>Dealer</th>
+                <th>Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="history : ${histories}">
+                <td th:text="${history.createdAt}">date</td>
+                <td th:text="${history.betAmount}">bet</td>
+                <td>
+                    <span class="result-pill" th:classappend="${' result-' + #strings.toLowerCase(history.result)}"
+                          th:text="${history.result}">result</span>
+                </td>
+                <td th:text="${history.playerScore}">player</td>
+                <td th:text="${history.dealerScore}">dealer</td>
+                <td th:text="${history.balanceAfterGame}">balance</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination" th:if="${historyPage.totalPages > 1}">
+            <a th:if="${historyPage.hasPrevious()}"
+               th:href="@{/history(page=${currentPage - 1})}">Previous</a>
+
+            <span>
+                Page <span th:text="${currentPage + 1}">1</span>
+                of <span th:text="${historyPage.totalPages}">1</span>
+            </span>
+
+            <a th:if="${historyPage.hasNext()}"
+               th:href="@{/history(page=${currentPage + 1})}">Next</a>
+        </div>
+    </section>
+
+    <a class="casino-back-link" href="/dashboard">Back to Dashboard</a>
+</main>
+</body>
+</html>
