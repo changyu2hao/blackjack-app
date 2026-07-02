@@ -2,6 +2,8 @@
 
 A modern web-based Blackjack game built with **Spring Boot**, **MySQL**, and **Thymeleaf**. Play against the dealer in real-time with a responsive web interface.
 
+🎮 **[Play Now!](https://web-production-02b9e2.up.railway.app/)** ← Click here to play online
+
 ## ✨ Features
 
 - 🎮 **Interactive Blackjack Game** - Play against an AI dealer
