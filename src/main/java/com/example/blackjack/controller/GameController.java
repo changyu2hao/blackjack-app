@@ -2,6 +2,10 @@ package com.example.blackjack.controller;
 
 import com.example.blackjack.game.BlackjackGame;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +20,7 @@ import com.example.blackjack.service.UserService;
 import java.math.BigDecimal;
 
 @Controller
+@Validated
 public class GameController {
 
     private final GameService gameService;
@@ -39,7 +44,7 @@ public class GameController {
     }
 
     @PostMapping("/game/start")
-    public String startGame(@RequestParam BigDecimal betAmount,
+        public String startGame(@RequestParam @NotNull @DecimalMin("1.00") @Digits(integer=10,fraction=2) BigDecimal betAmount,
                             @AuthenticationPrincipal UserDetails userDetails,
                             HttpSession session) {
         BlackjackGame existingGame = (BlackjackGame) session.getAttribute("game");

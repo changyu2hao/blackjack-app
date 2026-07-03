@@ -37,7 +37,7 @@
     <div class="dashboard-footer">
         <a href="/">Back to Home</a>
 
-        <form method="post" action="/logout">
+        <form method="post" th:action="@{/logout}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <button type="submit">Logout</button>
         </form>

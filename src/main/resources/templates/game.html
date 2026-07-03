@@ -26,7 +26,7 @@
 
     <section class="start-panel" th:if="${game == null}">
         <h2>Place Your Bet</h2>
-        <form method="post" action="/game/start">
+        <form method="post" th:action="@{/game/start}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <label>Bet Amount</label>
             <input type="number" name="betAmount" min="1" step="1" required>
@@ -117,19 +117,19 @@
     </div>
 
     <div class="action-row" th:if="${!game.gameOver}">
-        <form method="post" action="/game/hit">
+        <form method="post" th:action="@{/game/hit}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <button type="submit">Hit</button>
         </form>
 
-        <form method="post" action="/game/stand">
+        <form method="post" th:action="@{/game/stand}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <button type="submit">Stand</button>
         </form>
     </div>
 
     <div th:if="${game.gameOver}">
-        <form method="post" action="/game/new">
+        <form method="post" th:action="@{/game/new}">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <button type="submit">New Game</button>
         </form>
